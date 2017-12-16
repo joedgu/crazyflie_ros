@@ -29,15 +29,15 @@
       <arg name="frame" value="$(arg frame)" />
     </include>
 
-    <node name="pose" pkg="crazyflie_demo" type="publish_pose_teleop.py" output="screen">
-      <param name="name" value="goal" />
-      <param name="rate" value="10" />
+    <node name="pose" pkg="crazyflie_demo" type="publish_pose_trial.py" output="screen">
+      <param name="name" value="goal" />cat
+      <param name="rate" value="30" />
       <param name="x" value="$(arg x)" />
       <param name="y" value="$(arg y)" />
       <param name="z" value="$(arg z)" />
     </node>
 
-     <node pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0 0 0 1 $(arg frame) /crazyflie/base_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0 0 0 1 $(arg frame) /crazyflie/base_link 100" />
   </group>
 
   <!-- run vicon bridge -->
